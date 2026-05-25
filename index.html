@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#04040a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta name="description" content="WhatsApp AI automation for dental and aesthetic clinics in Lahore. 24/7 booking, instant replies, automatic reminders.">
+<link rel="canonical" href="https://brandlift.co/">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://brandlift.co/">
+<meta property="og:title" content="Brandlift.co — WhatsApp AI for Pakistani Clinics">
+<meta property="og:description" content="WhatsApp AI for dental and aesthetic clinics in Lahore. 24/7 booking, automatic reminders. First month free.">
+<meta property="og:locale" content="en_PK">
+<meta property="og:site_name" content="Brandlift.co">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Brandlift.co — WhatsApp AI for Pakistani Clinics">
+<meta name="twitter:description" content="WhatsApp AI for dental and aesthetic clinics in Lahore. First month free.">
+<title>Brandlift.co — WhatsApp AI for Pakistani Clinics</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2300ffd0'/><text y='.9em' font-size='70' x='10'>B</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2300ffd0'/><text y='.9em' font-size='70' x='10'>B</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Space+Mono:wght@400&family=DM+Sans:wght@400;500&display=swap&subset=latin">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Space+Mono:wght@400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+.skip-link{
+  position:absolute;top:-100px;left:16px;
+  background:var(--neon);color:#000;
+  padding:8px 16px;border-radius:6px;
+  font-weight:700;font-size:14px;
+  text-decoration:none;z-index:9999;
+  transition:top 0.2s;
+}
+.skip-link:focus{top:16px}
+:root{
+  --bg:#04040a;
+  --bg2:#080810;
+  --bg3:#0e0e1a;
+  --border:#16162a;
+  --border2:#22223a;
+  --text:#e4e4f4;
+  --text2:#7878a0;
+  --text3:#3a3a60;
+  --neon:#00ffd0;
+  --neon2:#00c8a8;
+  --neon-dim:rgba(0,255,208,0.06);
+  --neon-glow:rgba(0,255,208,0.18);
+  --neon-mid:rgba(0,255,208,0.10);
+  --wa:#25d366;
+  --wa-glow:rgba(37,211,102,0.25);
+  --purple:#8b5cf6;
+  --pink:#f472b6;
+}
+/* iOS safe areas */
+:root{--sat:env(safe-area-inset-top,0px);--sar:env(safe-area-inset-right,0px);--sab:env(safe-area-inset-bottom,0px);--sal:env(safe-area-inset-left,0px)}
+html{scroll-behavior:smooth;overscroll-behavior:none}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:'DM Sans',sans-serif;
+  font-display:swap;
+  font-size:16px;line-height:1.6;overflow-x:hidden;
+  -webkit-overflow-scrolling:touch;
+  -webkit-text-size-adjust:100%;text-size-adjust:100%;
+  overscroll-behavior-y:contain;
+}
+@media(hover:none){
+  .btn-neon:hover,.btn-ghost:hover,.nav-wa:hover,
+  .p-card:hover,.feat-card:hover,.step-card:hover,
+  .price-card:hover,.faq-row:hover{transform:none!important;box-shadow:none!important}
+}
+a,button{-webkit-tap-highlight-color:transparent;tap-highlight-color:transparent}
+.nav-wa,.btn-neon,.btn-ghost,.plan-btn,.wa-btn{min-height:44px}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+
+/* CANVAS PARTICLE BG */
+#particle-canvas{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  opacity:0.7;
+}
+
+/* SCANLINES */
+.scanlines{
+  position:fixed;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  background:repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.03) 2px,
+    rgba(0,0,0,0.03) 4px
+  );
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:900;
+  padding:0 48px;
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:rgba(4,4,10,0.80);
+  backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{
+  font-family:'Syne',sans-serif;
+  font-weight:800;
+  font-size:18px;
+  letter-spacing:-0.5px;
+  color:#fff;
+  text-decoration:none;
+  position:relative;
+  z-index:1;
+}
+.nav-logo .accent{color:var(--neon)}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{
+  color:var(--text2);
+  text-decoration:none;
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:0.03em;
+  transition:color 0.2s;
+  font-family:'Space Mono',monospace;
+}
+.nav-links a:hover{color:var(--neon)}
+.nav-wa{
+  display:flex;align-items:center;gap:8px;
+  background:var(--wa);
+  color:#fff;
+  padding:9px 20px;
+  border-radius:8px;
+  font-size:13px;
+  font-weight:600;
+  text-decoration:none;
+  font-family:'Syne',sans-serif;
+  letter-spacing:0.02em;
+  transition:all 0.2s;
+  border:none;cursor:pointer;
+}
+.nav-wa:hover{background:#1fb857;transform:translateY(-1px);box-shadow:0 6px 24px var(--wa-glow)}
+.nav-wa:active{background:#1fb857;transform:scale(0.97)}
+.nav-ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;min-height:44px;min-width:44px;align-items:center;justify-content:center}
+.nav-ham span{display:block;width:22px;height:2px;background:var(--text2);border-radius:2px;transition:all 0.25s}
+.mobile-menu{display:none;position:fixed;top:calc(64px + var(--sat));left:0;right:0;background:rgba(4,4,10,0.97);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:20px 24px calc(20px + var(--sab));z-index:899;flex-direction:column;gap:4px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--text2);text-decoration:none;font-size:16px;font-weight:500;padding:14px 0;border-bottom:1px solid var(--border);display:block}
+.mobile-menu a:last-child{border:none;color:var(--wa)}
+.mobile-menu a:active{color:var(--neon)}
+
+/* LAYOUT */
+section{position:relative;z-index:10}
+.container{max-width:1120px;margin:0 auto;padding:0 48px}
+
+/* ─── HERO ─── */
+.hero{
+  min-height:100svh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:60px;
+  padding:calc(100px + var(--sat)) 0 80px;
+  position:relative;
+}
+.hero-left{position:relative;z-index:10}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--neon-dim);
+  border:1px solid rgba(0,255,208,0.18);
+  color:var(--neon);
+  padding:7px 16px;
+  border-radius:100px;
+  font-size:11px;
+  font-family:'Space Mono',monospace;
+  letter-spacing:0.1em;
+  margin-bottom:28px;
+  text-transform:uppercase;
+}
+.badge-pulse{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--neon);
+  animation:badgepulse 2s infinite;
+}
+@keyframes badgepulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(0,255,208,0.5);opacity:1}
+  50%{box-shadow:0 0 0 8px rgba(0,255,208,0);opacity:0.7}
+}
+.hero-title{
+  font-family:'Syne',sans-serif;
+  font-weight:800;
+  font-size:clamp(38px,5vw,68px);
+  line-height:1.04;
+  letter-spacing:-2.5px;
+  color:#fff;
+  margin-bottom:24px;
+  min-height:280px;
+}
+.hero-title .line{display:block;overflow:hidden}
+.hero-title .neon{
+  color:var(--neon);
+  text-shadow:0 0 60px rgba(0,255,208,0.35),0 0 120px rgba(0,255,208,0.15);
+}
+.hero-title .dim{color:var(--text2)}
+/* GLITCH */
+.glitch{
+  position:relative;
+  display:inline-block;
+}
+.glitch::before,.glitch::after{
+  content:attr(data-text);
+  position:absolute;
+  top:0;left:0;
+  color:var(--neon);
+  width:100%;height:100%;
+  clip-path:polygon(0 0,100% 0,100% 35%,0 35%);
+}
+.glitch::before{
+  left:2px;
+  text-shadow:-2px 0 var(--pink);
+  animation:glitch1 3.5s infinite linear;
+}
+.glitch::after{
+  left:-2px;
+  text-shadow:2px 0 var(--purple);
+  animation:glitch2 3.5s infinite linear;
+  clip-path:polygon(0 65%,100% 65%,100% 100%,0 100%);
+}
+@keyframes glitch1{
+  0%,94%{transform:translate(0);opacity:0}
+  95%{transform:translate(-2px,1px);opacity:1}
+  96%{transform:translate(2px,-1px);opacity:1}
+  97%{transform:translate(-1px,2px);opacity:1}
+  98%{transform:translate(0);opacity:0}
+  100%{opacity:0}
+}
+@keyframes glitch2{
+  0%,94%{transform:translate(0);opacity:0}
+  95%{transform:translate(2px,-1px);opacity:1}
+  96%{transform:translate(-2px,1px);opacity:1}
+  97%{transform:translate(1px,-2px);opacity:1}
+  98%{transform:translate(0);opacity:0}
+  100%{opacity:0}
+}
+.hero-sub{
+  font-size:17px;
+  color:var(--text2);
+  line-height:1.75;
+  max-width:480px;
+  margin-bottom:36px;
+  font-weight:400;
+}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:40px}
+.btn-neon{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--neon);
+  color:#000;
+  padding:14px 28px;
+  border-radius:8px;
+  font-size:14px;
+  font-weight:700;
+  font-family:'Syne',sans-serif;
+  text-decoration:none;
+  border:none;cursor:pointer;
+  letter-spacing:0.02em;
+  transition:all 0.2s;
+  position:relative;
+  overflow:hidden;
+}
+.btn-neon::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.15),transparent);
+  opacity:0;
+  transition:opacity 0.2s;
+}
+.btn-neon:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,255,208,0.35)}
+.btn-neon:hover::after{opacity:1}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;
+  color:var(--text2);
+  padding:14px 24px;
+  border-radius:8px;
+  font-size:14px;
+  font-weight:500;
+  text-decoration:none;
+  border:1px solid var(--border2);
+  cursor:pointer;
+  transition:all 0.2s;
+  font-family:'DM Sans',sans-serif;
+}
+.btn-ghost:hover{color:var(--text);border-color:var(--text3)}
+.hero-stats{
+  display:flex;gap:32px;
+  border-top:1px solid var(--border);
+  padding-top:28px;
+}
+.hstat{text-align:left}
+.hstat-val{
+  font-family:'Syne',sans-serif;
+  font-size:28px;
+  font-weight:800;
+  color:var(--neon);
+  letter-spacing:-1px;
+  line-height:1;
+  display:block;
+  text-shadow:0 0 30px rgba(0,255,208,0.3);
+}
+.hstat-label{
+  font-size:11px;
+  color:var(--text3);
+  font-family:'Space Mono',monospace;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  margin-top:4px;
+  display:block;
+}
+
+/* ─── PHONE MOCKUP ─── */
+.hero-right{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+  z-index:10;
+}
+.phone-wrap{
+  position:relative;
+  width:280px;
+}
+.phone-glow{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:340px;height:480px;
+  background:radial-gradient(ellipse, rgba(0,255,208,0.12) 0%, transparent 70%);
+  pointer-events:none;
+  animation:glowpulse 3s ease-in-out infinite;
+}
+@keyframes glowpulse{
+  0%,100%{opacity:0.6;transform:translate(-50%,-50%) scale(1)}
+  50%{opacity:1;transform:translate(-50%,-50%) scale(1.05)}
+}
+.phone-frame{
+  width:280px;
+  height:580px;
+  background:var(--bg3);
+  border-radius:40px;
+  border:2px solid var(--border2);
+  position:relative;
+  overflow:hidden;
+  box-shadow:
+    0 0 0 1px rgba(0,255,208,0.08),
+    0 40px 80px rgba(0,0,0,0.8),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+.phone-notch{
+  width:100px;height:28px;
+  background:var(--bg);
+  border-radius:0 0 20px 20px;
+  margin:0 auto;
+  position:relative;
+  z-index:2;
+}
+.phone-screen{
+  padding:0;
+  height:calc(100% - 28px);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+.wa-header{
+  background:#1a1a2e;
+  padding:12px 16px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  border-bottom:1px solid var(--border);
+  flex-shrink:0;
+}
+.wa-avatar{
+  width:36px;height:36px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--neon),var(--purple));
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:700;
+  color:#000;
+  font-family:'Syne',sans-serif;
+  flex-shrink:0;
+}
+.wa-clinic{font-size:13px;font-weight:600;color:#fff;line-height:1.2;font-family:'DM Sans',sans-serif}
+.wa-online{font-size:10px;color:var(--wa);font-family:'Space Mono',monospace}
+.wa-chat{
+  flex:1;
+  padding:12px 12px 8px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  overflow:hidden;
+  background:var(--bg2);
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(0,255,208,0.02) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(139,92,246,0.02) 0%, transparent 50%);
+}
+.msg{
+  max-width:85%;
+  padding:9px 12px;
+  border-radius:12px;
+  font-size:11.5px;
+  line-height:1.5;
+  position:relative;
+  font-family:'DM Sans',sans-serif;
+  opacity:0;
+  transform:translateY(8px);
+  transition:opacity 0.4s ease, transform 0.4s ease;
+}
+.msg.visible{opacity:1;transform:translateY(0)}
+.msg-user{
+  background:#2a2a4a;
+  color:var(--text);
+  align-self:flex-end;
+  border-radius:12px 12px 4px 12px;
+}
+.msg-bot{
+  background:#0f2a1e;
+  color:#c8f0d8;
+  align-self:flex-start;
+  border-radius:12px 12px 12px 4px;
+  border:1px solid rgba(0,255,208,0.1);
+}
+.msg-time{
+  font-size:9px;
+  color:var(--text3);
+  margin-top:3px;
+  text-align:right;
+  font-family:'Space Mono',monospace;
+}
+.typing-indicator{
+  align-self:flex-start;
+  display:flex;align-items:center;gap:4px;
+  padding:10px 14px;
+  background:#0f2a1e;
+  border-radius:12px 12px 12px 4px;
+  border:1px solid rgba(0,255,208,0.1);
+  opacity:0;
+  transition:opacity 0.3s;
+}
+.typing-indicator.show{opacity:1}
+.t-dot{
+  width:6px;height:6px;
+  border-radius:50%;
+  background:var(--neon);
+  animation:tdot 1.2s infinite;
+}
+.t-dot:nth-child(2){animation-delay:0.2s}
+.t-dot:nth-child(3){animation-delay:0.4s}
+@keyframes tdot{0%,60%,100%{transform:translateY(0);opacity:0.4}30%{transform:translateY(-5px);opacity:1}}
+.wa-input-bar{
+  background:#111122;
+  padding:10px 12px;
+  display:flex;align-items:center;gap:8px;
+  border-top:1px solid var(--border);
+  flex-shrink:0;
+}
+.wa-input-fake{
+  flex:1;
+  background:#1e1e38;
+  border-radius:20px;
+  padding:8px 14px;
+  font-size:11px;
+  color:var(--text3);
+  font-family:'DM Sans',sans-serif;
+}
+.wa-send{
+  width:30px;height:30px;
+  border-radius:50%;
+  background:var(--wa);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+/* Floating labels around phone */
+.phone-tag{
+  position:absolute;
+  background:var(--bg3);
+  border:1px solid var(--border2);
+  border-radius:8px;
+  padding:8px 14px;
+  font-family:'Space Mono',monospace;
+  font-size:10px;
+  white-space:nowrap;
+  display:flex;align-items:center;gap:6px;
+  animation:floattag 3s ease-in-out infinite;
+}
+.phone-tag .dot{width:6px;height:6px;border-radius:50%}
+.tag1{top:60px;right:-100px;color:var(--neon);animation-delay:0s}
+.tag1 .dot{background:var(--neon)}
+.tag2{top:180px;left:-110px;color:var(--wa);animation-delay:1s}
+.tag2 .dot{background:var(--wa)}
+.tag3{bottom:140px;right:-90px;color:var(--purple);animation-delay:2s}
+.tag3 .dot{background:var(--purple)}
+@keyframes floattag{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+}
+
+/* ─── TICKER ─── */
+.ticker{
+  position:relative;z-index:10;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  background:var(--bg2);
+  padding:14px 0;
+  overflow:hidden;
+}
+.ticker-track{
+  display:flex;gap:0;
+  animation:tick 28s linear infinite;
+  width:max-content;
+}
+.tick-item{
+  display:flex;align-items:center;gap:8px;
+  padding:0 36px;
+  font-family:'Space Mono',monospace;
+  font-size:10px;
+  color:var(--text3);
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.tick-item .sep{color:var(--neon);font-size:18px;line-height:0}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ─── SECTION COMMONS ─── */
+.section-eye{
+  font-family:'Space Mono',monospace;
+  font-size:10px;
+  color:var(--neon);
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:16px;
+}
+.section-eye::before{content:'';width:20px;height:1px;background:var(--neon)}
+.section-h{
+  font-family:'Syne',sans-serif;
+  font-weight:800;
+  font-size:clamp(28px,4vw,50px);
+  letter-spacing:-1.5px;
+  line-height:1.06;
+  color:#fff;
+  margin-bottom:14px;
+}
+.section-p{
+  font-size:16px;
+  color:var(--text2);
+  line-height:1.75;
+  max-width:520px;
+  margin-bottom:56px;
+}
+
+/* ─── PROBLEM ─── */
+.problem{padding:100px 0}
+.problem-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:2px;
+  background:var(--border);
+  border:1px solid var(--border);
+  border-radius:14px;
+  overflow:hidden;
+}
+.p-card{
+  background:var(--bg2);
+  padding:36px 32px;
+  position:relative;
+  transition:background 0.3s;
+}
+.p-card:hover{background:var(--bg3)}
+.p-card::before{
+  content:attr(data-n);
+  position:absolute;top:24px;right:24px;
+  font-family:'Space Mono',monospace;
+  font-size:10px;
+  color:var(--border2);
+  letter-spacing:0.1em;
+}
+.p-icon{font-size:30px;margin-bottom:16px;display:block}
+.p-card h3{
+  font-family:'Syne',sans-serif;
+  font-size:17px;font-weight:700;
+  color:#fff;
+  margin-bottom:10px;letter-spacing:-0.3px;
+}
+.p-card p{font-size:13.5px;color:var(--text2);line-height:1.65}
+.p-card.hot{background:rgba(0,255,208,0.04)}
+.p-card.hot h3{color:var(--neon)}
+
+/* ─── FEATURES ─── */
+.features{
+  padding:100px 0;
+  background:var(--bg2);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.feat-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2px;
+  background:var(--border);
+  border:1px solid var(--border);
+  border-radius:14px;
+  overflow:hidden;
+}
+.feat-card{
+  background:var(--bg2);
+  padding:32px 28px;
+  position:relative;
+  transition:background 0.3s;
+  overflow:hidden;
+}
+.feat-card::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,var(--neon-dim),transparent);
+  opacity:0;
+  transition:opacity 0.3s;
+}
+.feat-card:hover{background:var(--bg3)}
+.feat-card:hover::before{opacity:1}
+.feat-n{
+  font-family:'Space Mono',monospace;
+  font-size:10px;
+  color:var(--neon);
+  letter-spacing:0.1em;
+  margin-bottom:18px;
+  display:block;
+}
+.feat-card h3{
+  font-family:'Syne',sans-serif;
+  font-size:16px;font-weight:700;
+  color:#fff;margin-bottom:10px;letter-spacing:-0.2px;
+}
+.feat-card p{font-size:13px;color:var(--text2);line-height:1.65}
+.feat-pill{
+  display:inline-block;margin-top:16px;
+  font-family:'Space Mono',monospace;font-size:9px;
+  color:var(--neon);
+  background:var(--neon-dim);
+  border:1px solid rgba(0,255,208,0.15);
+  padding:3px 10px;border-radius:100px;
+  letter-spacing:0.05em;text-transform:uppercase;
+}
+
+/* ─── HOW IT WORKS ─── */
+.how{padding:100px 0}
+.steps-row{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:2px;
+  background:var(--border);
+  border:1px solid var(--border);
+  border-radius:14px;
+  overflow:hidden;
+  margin-top:56px;
+}
+.step-card{
+  background:var(--bg2);
+  padding:32px 24px;
+  position:relative;
+  transition:background 0.3s;
+}
+.step-card:hover{background:var(--bg3)}
+.step-n-big{
+  font-family:'Space Mono',monospace;
+  font-size:44px;font-weight:700;
+  color:var(--border);
+  line-height:1;
+  margin-bottom:20px;
+  display:block;
+  transition:color 0.3s;
+}
+.step-card:hover .step-n-big{color:var(--border2)}
+.step-card h3{
+  font-family:'Syne',sans-serif;
+  font-size:15px;font-weight:700;
+  color:#fff;margin-bottom:8px;letter-spacing:-0.2px;
+}
+.step-card p{font-size:13px;color:var(--text2);line-height:1.6}
+.step-arr{
+  position:absolute;top:32px;right:-12px;
+  width:22px;height:22px;
+  background:var(--bg3);
+  border:1px solid var(--border2);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;color:var(--neon);
+  z-index:2;
+}
+.step-card:last-child .step-arr{display:none}
+
+/* ─── PRICING ─── */
+.pricing{
+  padding:100px 0;
+  background:var(--bg2);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.price-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:2px;
+  background:var(--border);
+  border:1px solid var(--border);
+  border-radius:14px;
+  overflow:hidden;
+  margin-top:56px;
+}
+.price-card{
+  background:var(--bg2);
+  padding:36px 30px;
+  transition:background 0.3s;
+  position:relative;
+}
+.price-card:hover{background:var(--bg3)}
+.price-card.featured{
+  background:rgba(0,255,208,0.04);
+  position:relative;
+}
+.price-card.featured::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;
+  height:2px;
+  background:var(--neon);
+  box-shadow:0 0 20px rgba(0,255,208,0.5);
+}
+.feat-badge{
+  position:absolute;top:20px;right:20px;
+  font-family:'Space Mono',monospace;
+  font-size:9px;
+  color:var(--neon);
+  background:var(--neon-dim);
+  border:1px solid rgba(0,255,208,0.2);
+  padding:3px 10px;border-radius:100px;
+  letter-spacing:0.1em;text-transform:uppercase;
+}
+.price-tier{
+  font-family:'Space Mono',monospace;
+  font-size:10px;
+  color:var(--text2);
+  letter-spacing:0.14em;text-transform:uppercase;
+  margin-bottom:16px;
+}
+.price-amount{
+  font-family:'Syne',sans-serif;
+  font-size:44px;font-weight:800;
+  color:#fff;letter-spacing:-2px;line-height:1;margin-bottom:4px;
+}
+.featured .price-amount{
+  color:var(--neon);
+  text-shadow:0 0 30px rgba(0,255,208,0.3);
+}
+.price-per{
+  font-size:12px;color:var(--text3);
+  font-family:'Space Mono',monospace;
+  margin-bottom:28px;
+}
+.price-items{list-style:none;margin-bottom:28px}
+.price-items li{
+  font-size:13px;color:var(--text2);
+  padding:7px 0;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;
+}
+.price-items li::before{content:'→';color:var(--neon);font-size:11px;flex-shrink:0}
+.price-items li.hi{color:var(--neon)}
+.plan-btn{
+  display:block;width:100%;text-align:center;
+  padding:12px 20px;border-radius:8px;
+  font-size:13px;font-weight:600;
+  font-family:'Syne',sans-serif;
+  text-decoration:none;cursor:pointer;border:none;
+  transition:all 0.2s;letter-spacing:0.02em;
+  touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+}
+.plan-solid:active,.plan-outline:active{transform:scale(0.97)}
+.plan-outline{
+  background:transparent;
+  border:1px solid var(--border2);
+  color:var(--text2);
+}
+.plan-outline:hover{border-color:var(--neon);color:var(--neon)}
+.plan-solid{background:var(--neon);color:#000}
+.plan-solid:hover{background:#fff;transform:translateY(-1px);box-shadow:0 6px 24px rgba(0,255,208,0.25)}
+
+/* ─── FAQ ─── */
+.faq{padding:100px 0}
+.faq-wrap{max-width:700px;margin-top:56px;display:flex;flex-direction:column;gap:2px}
+.faq-row{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:10px;overflow:hidden;
+  transition:border-color 0.2s;
+}
+.faq-row:hover{border-color:var(--border2)}
+.faq-row.open{border-color:rgba(0,255,208,0.2)}
+.faq-q{
+  padding:20px 24px;cursor:pointer;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  font-size:15px;font-weight:500;color:var(--text);letter-spacing:-0.2px;
+  min-height:60px;user-select:none;-webkit-user-select:none;
+}
+.faq-tog{
+  width:24px;height:24px;border:1px solid var(--border2);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;font-size:14px;color:var(--text3);
+  transition:all 0.25s;
+}
+.faq-row.open .faq-tog{border-color:var(--neon);color:var(--neon);transform:rotate(45deg)}
+.faq-a{
+  display:none;
+  padding:0 24px 20px;font-size:14px;color:var(--text2);line-height:1.75;
+  border-top:1px solid var(--border);padding-top:16px;margin-top:-1px;
+}
+.faq-row.open .faq-a{display:block}
+
+/* ─── FINAL CTA ─── */
+.cta-final{
+  padding:120px 0;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta-orb{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:600px;height:400px;
+  background:radial-gradient(ellipse, rgba(0,255,208,0.07) 0%, transparent 65%);
+  pointer-events:none;
+  animation:orbpulse 4s ease-in-out infinite;
+}
+@keyframes orbpulse{
+  0%,100%{opacity:0.5;transform:translate(-50%,-50%) scale(1)}
+  50%{opacity:1;transform:translate(-50%,-50%) scale(1.1)}
+}
+.cta-final h2{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(32px,5vw,60px);
+  font-weight:800;letter-spacing:-2px;
+  color:#fff;margin-bottom:16px;line-height:1.06;
+  position:relative;z-index:1;
+}
+.cta-final p{
+  font-size:17px;color:var(--text2);
+  margin-bottom:36px;max-width:480px;
+  margin-left:auto;margin-right:auto;
+  position:relative;z-index:1;
+}
+.cta-meta{
+  margin-top:18px;
+  font-family:'Space Mono',monospace;
+  font-size:11px;color:var(--text3);
+  letter-spacing:0.08em;
+  position:relative;z-index:1;
+}
+
+/* ─── FOOTER ─── */
+footer{
+  border-top:1px solid var(--border);
+  padding:36px 48px calc(36px + var(--sab));
+  display:flex;align-items:center;justify-content:space-between;
+  position:relative;z-index:10;
+}
+.foot-logo{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:17px;
+  color:var(--text);
+}
+.foot-logo span{color:var(--neon)}
+.foot-r{
+  font-family:'Space Mono',monospace;font-size:11px;
+  color:var(--text3);text-align:right;letter-spacing:0.05em;
+  line-height:1.8;
+}
+.foot-status{
+  display:inline-flex;align-items:center;gap:6px;
+  color:var(--wa);margin-top:4px;
+}
+.s-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--wa);animation:badgepulse 2s infinite;
+}
+
+/* ─── WHATSAPP FLOAT ─── */
+.wa-float{
+  position:fixed;
+  bottom:calc(28px + var(--sab));
+  right:calc(28px + var(--sar));
+  z-index:999;
+  display:flex;flex-direction:column;align-items:flex-end;gap:10px;
+}
+.wa-tip{
+  background:var(--bg3);border:1px solid var(--border2);
+  color:var(--text);padding:10px 16px;border-radius:8px;
+  font-size:13px;font-weight:500;white-space:nowrap;
+  opacity:0;transform:translateX(10px);
+  transition:all 0.2s;pointer-events:none;
+}
+.wa-float:hover .wa-tip{opacity:1;transform:translateX(0)}
+.wa-btn{
+  width:58px;height:58px;
+  background:var(--wa);border-radius:18px;
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;
+  box-shadow:0 4px 28px var(--wa-glow);
+  transition:all 0.2s;position:relative;
+}
+.wa-btn:hover{transform:scale(1.08);box-shadow:0 8px 40px rgba(37,211,102,0.4)}
+.wa-btn svg{width:26px;height:26px;fill:white}
+.wa-ping{
+  position:absolute;top:-4px;right:-4px;
+  width:14px;height:14px;
+  background:var(--neon);border-radius:50%;
+  border:2px solid var(--bg);
+  animation:wapin 2.5s infinite;
+}
+@keyframes wapin{
+  0%{transform:scale(1);opacity:1}
+  70%{transform:scale(2);opacity:0}
+  100%{transform:scale(1);opacity:0}
+}
+
+/* ─── FADE UP ─── */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease;will-change:opacity,transform}
+.fade-up.vis{opacity:1;transform:translateY(0)}
+.fade-up:nth-child(2){transition-delay:0.1s}
+.fade-up:nth-child(3){transition-delay:0.2s}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:960px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .container{padding:0 20px}
+  .hero{grid-template-columns:1fr;gap:40px;padding:100px 0 60px;text-align:center}
+  .hero-sub{margin-left:auto;margin-right:auto}
+  .hero-actions{justify-content:center}
+  .hero-stats{justify-content:center}
+  .hero-right{display:none}
+  .problem-grid,.feat-grid,.price-grid{grid-template-columns:1fr}
+  .steps-row{grid-template-columns:1fr 1fr}
+  footer{flex-direction:column;gap:14px;text-align:center;padding:24px 20px}
+  .foot-r{text-align:center}
+}
+@media(max-width:600px){
+  .steps-row{grid-template-columns:1fr}
+  .hero-stats{flex-wrap:wrap;gap:20px}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Brandlift.co",
+  "description": "WhatsApp AI automation for dental and aesthetic clinics in Lahore, Pakistan. 24/7 booking, instant replies, and automatic reminders.",
+  "url": "https://brandlift.co",
+  "telephone": "+923007218924",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Lahore",
+    "addressRegion": "Punjab",
+    "addressCountry": "PK"
+  },
+  "areaServed": ["DHA Lahore", "Gulberg Lahore", "Lahore"],
+  "serviceType": ["WhatsApp AI Automation", "Chatbot Development", "Appointment Booking Systems"],
+  "priceRange": "PKR 25,000 - 60,000/month",
+  "sameAs": []
+}
+</script>
+</head>
+<body>
+
+<!-- CANVAS PARTICLE NETWORK -->
+<a href="#features" class="skip-link">Skip to content</a>
+<canvas id="particle-canvas"></canvas>
+<div class="scanlines"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">brandlift<span class="accent">.co</span></a>
+  <ul class="nav-links">
+    <li><a href="#features">features</a></li>
+    <li><a href="#how">process</a></li>
+    <li><a href="#pricing">pricing</a></li>
+    <li><a href="#faq">faq</a></li>
+  </ul>
+  <a href="https://wa.me/923007218924" class="nav-wa">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    Get a demo
+  </a>
+  <button class="nav-ham" id="ham-btn" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="#features">Features</a>
+  <a href="#how">How it works</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#faq">FAQ</a>
+  <a href="https://wa.me/923007218924" style="color:var(--wa)">&#128172; Chat on WhatsApp</a>
+</div>
+
+<!-- HERO -->
+<div class="container">
+<section class="hero">
+  <div class="hero-left fade-up">
+    <div class="hero-badge"><span class="badge-pulse"></span>WhatsApp AI · Lahore, Pakistan · 2026</div>
+    <h1 class="hero-title">
+      <span class="line">Patients message</span>
+      <span class="line">at <span class="neon glitch" data-text="2am.">2am.</span></span>
+      <span class="line dim" id="streaming-line" style="min-height:80px;display:block"></span>
+    </h1>
+    <p class="hero-sub">AI-powered WhatsApp automation for dental and aesthetic clinics in Lahore. 24/7 booking, instant replies, automatic reminders.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/923007218924" class="btn-neon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        See live demo
+      </a>
+      <a href="#how" class="btn-ghost">How it works ↓</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-val">~40%</span><span class="hstat-label">fewer no-shows</span></div>
+      <div class="hstat"><span class="hstat-val">0.3s</span><span class="hstat-label">reply speed</span></div>
+      <div class="hstat"><span class="hstat-val">24/7</span><span class="hstat-label">always on</span></div>
+      <div class="hstat"><span class="hstat-val">3 days</span><span class="hstat-label">setup time</span></div>
+    </div>
+  </div>
+
+  <!-- PHONE MOCKUP -->
+  <div class="hero-right fade-up">
+    <div class="phone-wrap">
+      <div class="phone-glow"></div>
+      <!-- floating tags -->
+      <div class="phone-tag tag1"><span class="dot"></span>booking confirmed</div>
+      <div class="phone-tag tag2"><span class="dot"></span>lead captured</div>
+      <div class="phone-tag tag3"><span class="dot"></span>reminder sent</div>
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="wa-header">
+            <div class="wa-avatar">SS</div>
+            <div>
+              <div class="wa-clinic">Smile Studio Dental</div>
+              <div class="wa-online">● online</div>
+            </div>
+          </div>
+          <div class="wa-chat" id="wa-chat">
+            <div class="msg msg-user" id="m1">HydraFacial ka kya price hai? 💆</div>
+            <div class="typing-indicator" id="typing"><div class="t-dot"></div><div class="t-dot"></div><div class="t-dot"></div></div>
+            <div class="msg msg-bot" id="m2">Assalam o Alaikum! 👋 HydraFacial PKR 8,500 mein available hai. Aaj available slots hain:<br><br>• Today 4pm<br>• Tomorrow 11am<br>• Tomorrow 3pm<br><br>Kaunsa time suit karta hai? 😊<div class="msg-time">just now ✓✓</div></div>
+            <div class="msg msg-user" id="m3">Tomorrow 11am ✅</div>
+            <div class="typing-indicator" id="typing2"><div class="t-dot"></div><div class="t-dot"></div><div class="t-dot"></div></div>
+            <div class="msg msg-bot" id="m4">✅ Appointment confirmed!<br><br>📅 Tomorrow, 11:00 AM<br>📍 Smile Studio Dental<br><br>Reminder bhej denge 1 ghante pehle 🔔<div class="msg-time">just now ✓✓</div></div>
+          </div>
+          <div class="wa-input-bar">
+            <div class="wa-input-fake">Type a message...</div>
+            <div class="wa-send"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="tick-item"><span class="sep">·</span>24/7 booking</span>
+    <span class="tick-item"><span class="sep">·</span>Roman Urdu + English</span>
+    <span class="tick-item"><span class="sep">·</span>Auto reminders</span>
+    <span class="tick-item"><span class="sep">·</span>Google Sheets sync</span>
+    <span class="tick-item"><span class="sep">·</span>Zero missed leads</span>
+    <span class="tick-item"><span class="sep">·</span>Dental clinics</span>
+    <span class="tick-item"><span class="sep">·</span>Aesthetic studios</span>
+    <span class="tick-item"><span class="sep">·</span>Admin dashboard</span>
+    <span class="tick-item"><span class="sep">·</span>DHA · Gulberg · Lahore</span>
+    <span class="tick-item"><span class="sep">·</span>Claude AI powered</span>
+    <span class="tick-item"><span class="sep">·</span>24/7 booking</span>
+    <span class="tick-item"><span class="sep">·</span>Roman Urdu + English</span>
+    <span class="tick-item"><span class="sep">·</span>Auto reminders</span>
+    <span class="tick-item"><span class="sep">·</span>Google Sheets sync</span>
+    <span class="tick-item"><span class="sep">·</span>Zero missed leads</span>
+    <span class="tick-item"><span class="sep">·</span>Dental clinics</span>
+    <span class="tick-item"><span class="sep">·</span>Aesthetic studios</span>
+    <span class="tick-item"><span class="sep">·</span>Admin dashboard</span>
+    <span class="tick-item"><span class="sep">·</span>DHA · Gulberg · Lahore</span>
+    <span class="tick-item"><span class="sep">·</span>Claude AI powered</span>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="problem" id="problem">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-eye">The problem</div>
+      <h2 class="section-h">You're losing patients<br>while you sleep.</h2>
+      <p class="section-p">Every unanswered WhatsApp message is a missed appointment. Your staff can't be online at midnight. Your patients expect instant replies.</p>
+    </div>
+    <div class="problem-grid fade-up">
+      <div class="p-card" data-n="01">
+        <span class="p-icon">🌙</span>
+        <h3>Late night inquiries ignored</h3>
+        <p>Patients research after 9pm. Your staff is home. By morning, that patient has already booked elsewhere.</p>
+      </div>
+      <div class="p-card" data-n="02">
+        <span class="p-icon">📱</span>
+        <h3>Staff can't handle everything</h3>
+        <p>Your receptionist can't handle walk-ins AND reply to 40 WhatsApp messages at once. Leads fall through.</p>
+      </div>
+      <div class="p-card hot" data-n="03">
+        <span class="p-icon">💸</span>
+        <h3>Every missed message = lost money</h3>
+        <p>One missed HydraFacial = PKR 8,000 gone. Five per week = PKR 40,000/month in lost revenue. Every month.</p>
+      </div>
+      <div class="p-card" data-n="04">
+        <span class="p-icon">🔄</span>
+        <h3>Same questions every single day</h3>
+        <p>"Botox ka price kya hai?" — your staff answers this 15 times daily. That time belongs with real patients.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-eye">What it does</div>
+      <h2 class="section-h">Everything your clinic<br>needs on WhatsApp.</h2>
+      <p class="section-p">Built for Pakistani clinics. Understands Roman Urdu, Pakistani phone formats, and how your patients actually talk.</p>
+    </div>
+    <div class="feat-grid fade-up">
+      <div class="feat-card">
+        <span class="feat-n">[ 01 ]</span>
+        <h3>Smart appointment booking</h3>
+        <p>Patients book on WhatsApp. Bot understands "kal shaam 4 baje" and confirms the slot in seconds.</p>
+        <span class="feat-pill">dental + aesthetic</span>
+      </div>
+      <div class="feat-card">
+        <span class="feat-n">[ 02 ]</span>
+        <h3>Two-path consultation flow</h3>
+        <p>Bookable services → direct booking. Medical treatments (Botox, fillers) → consultation callback. Medically correct.</p>
+        <span class="feat-pill">aesthetic</span>
+      </div>
+      <div class="feat-card">
+        <span class="feat-n">[ 03 ]</span>
+        <h3>Automatic reminders</h3>
+        <p>Patients get reminders 24hrs before. No-show rate drops ~40%. Zero effort from your staff.</p>
+        <span class="feat-pill">both</span>
+      </div>
+      <div class="feat-card">
+        <span class="feat-n">[ 04 ]</span>
+        <h3>FAQ on autopilot</h3>
+        <p>Pricing, services, location, availability — answered instantly. Roman Urdu or English. Always.</p>
+        <span class="feat-pill">both</span>
+      </div>
+      <div class="feat-card">
+        <span class="feat-n">[ 05 ]</span>
+        <h3>Google Sheets sync</h3>
+        <p>Every booking and lead saved automatically. Appointments, leads, messages — all organized in real time.</p>
+        <span class="feat-pill">both</span>
+      </div>
+      <div class="feat-card">
+        <span class="feat-n">[ 06 ]</span>
+        <h3>Live admin dashboard</h3>
+        <p>All bookings and leads in one place. Password protected. Updates live. See your clinic's pulse in real time.</p>
+        <span class="feat-pill">both</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-eye">Process</div>
+      <h2 class="section-h">Live in 3 days.<br>Zero tech work from you.</h2>
+    </div>
+    <div class="steps-row fade-up">
+      <div class="step-card">
+        <div class="step-arr">→</div>
+        <span class="step-n-big">01</span>
+        <h3>Share your services</h3>
+        <p>Send us your services list, prices, and doctor schedule. No technical work needed from your side.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-arr">→</div>
+        <span class="step-n-big">02</span>
+        <h3>We build and test</h3>
+        <p>We configure, test every flow, and customize completely for your clinic. Done in 3 days max.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-arr">→</div>
+        <span class="step-n-big">03</span>
+        <h3>Goes live on WhatsApp</h3>
+        <p>Bot is active on your number. Patients message, bot replies, bookings appear in your Google Sheet.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-n-big">04</span>
+        <h3>Watch it work</h3>
+        <p>Open your dashboard anytime to see bookings and leads. We handle all maintenance and updates.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-eye">Pricing</div>
+      <h2 class="section-h">Less than one<br>missed appointment.</h2>
+      <p class="section-p">One no-show costs PKR 8,000–15,000. The bot pays for itself in the first week.</p>
+    </div>
+    <div class="price-grid fade-up">
+      <div class="price-card">
+        <div class="price-tier">Starter</div>
+        <div class="price-amount">25K</div>
+        <div class="price-per">PKR / month</div>
+        <ul class="price-items">
+          <li>WhatsApp appointment booking</li>
+          <li>FAQ automation</li>
+          <li>Google Sheets sync</li>
+          <li>Reminder messages</li>
+          <li class="hi">First month free</li>
+        </ul>
+        <a href="https://wa.me/923007218924" class="plan-btn plan-outline">Get started →</a>
+      </div>
+      <div class="price-card featured">
+        <div class="feat-badge">POPULAR</div>
+        <div class="price-tier">Pro</div>
+        <div class="price-amount">40K</div>
+        <div class="price-per">PKR / month</div>
+        <ul class="price-items">
+          <li>Everything in Starter</li>
+          <li>Two-path consultation flow</li>
+          <li>Lead capture system</li>
+          <li>Live admin dashboard</li>
+          <li>Auto reminders 24hr</li>
+          <li>Staff handoff system</li>
+          <li class="hi">First month free</li>
+        </ul>
+        <a href="https://wa.me/923007218924" class="plan-btn plan-solid">Start free trial →</a>
+      </div>
+      <div class="price-card">
+        <div class="price-tier">Premium</div>
+        <div class="price-amount">60K</div>
+        <div class="price-per">PKR / month</div>
+        <ul class="price-items">
+          <li>Everything in Pro</li>
+          <li>Custom conversation flows</li>
+          <li>Multi-doctor scheduling</li>
+          <li>Staff training session</li>
+          <li>Priority support</li>
+          <li class="hi">First month free</li>
+        </ul>
+        <a href="https://wa.me/923007218924" class="plan-btn plan-outline">Contact us →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-eye">FAQ</div>
+      <h2 class="section-h">Common questions.</h2>
+    </div>
+    <div class="faq-wrap fade-up">
+      <div class="faq-row">
+        <div class="faq-q">Will patients know they're talking to a bot? <span class="faq-tog">+</span></div>
+        <div class="faq-a">The bot replies in natural Roman Urdu and sounds exactly like a real receptionist. For consultations (Botox, fillers, rhinoplasty), it collects info and promises a doctor callback — never pretends to be the doctor.</div>
+      </div>
+      <div class="faq-row">
+        <div class="faq-q">Does my clinic need a website? <span class="faq-tog">+</span></div>
+        <div class="faq-a">No. The bot runs entirely on WhatsApp. We just need your services list and schedule — that's it. No website, no technical setup from your side.</div>
+      </div>
+      <div class="faq-row">
+        <div class="faq-q">How long does setup take? <span class="faq-tog">+</span></div>
+        <div class="faq-a">3–5 days maximum. You give us your services, pricing, and doctor schedule. We handle everything else — building, testing, and going live.</div>
+      </div>
+      <div class="faq-row">
+        <div class="faq-q">What if the bot can't handle something? <span class="faq-tog">+</span></div>
+        <div class="faq-a">The bot automatically transfers to your staff with full conversation context. No patient gets lost. Your team picks up exactly where the bot left off.</div>
+      </div>
+      <div class="faq-row">
+        <div class="faq-q">We already use WhatsApp Business — does this replace it? <span class="faq-tog">+</span></div>
+        <div class="faq-a">It runs on top of WhatsApp. Your existing number and contacts stay the same. Think of it as WhatsApp Business on full autopilot.</div>
+      </div>
+      <div class="faq-row">
+        <div class="faq-q">Is the first month really free? <span class="faq-tog">+</span></div>
+        <div class="faq-a">Yes. No credit card, no commitment. We set up the full system, you run it for 30 days — if you don't see the value, you owe nothing. We're confident it pays for itself in the first week.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-final">
+  <div class="cta-orb"></div>
+  <div class="container">
+    <div class="fade-up">
+      <h2>Stop losing patients<br>to silence.</h2>
+      <p>See the live demo in 2 minutes. Built for your clinic. First month completely free.</p>
+      <a href="https://wa.me/923007218924" class="btn-neon" style="font-size:15px;padding:16px 36px;display:inline-flex">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Message on WhatsApp
+      </a>
+      <div class="cta-meta">+92 300 721 8924 · brandlift.co · Lahore, Pakistan</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">brandlift<span>.co</span></div>
+  <div class="foot-r">
+    <div>WhatsApp AI for Pakistani Clinics</div>
+    <div>DHA · Gulberg · Lahore</div>
+    <div class="foot-status"><span class="s-dot"></span>Systems operational</div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<div class="wa-float">
+  <div class="wa-tip">Chat on WhatsApp →</div>
+  <a href="https://wa.me/923007218924" class="wa-btn" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <div class="wa-ping"></div>
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+</div>
+
+<script>
+/* ── DEVICE DETECTION ── */
+const isMobile=/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+const isIOS=/iPhone|iPad|iPod/i.test(navigator.userAgent);
+const prefersReducedMotion=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+/* ── PARTICLE NETWORK ── */
+const canvas=document.getElementById('particle-canvas');
+const ctx=canvas.getContext('2d');
+let W,H,particles=[],mouse={x:null,y:null};
+const NEON='rgba(0,255,208,';
+/* Fewer particles on mobile for performance */
+const N=isMobile?30:80;
+
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
+resize();
+const resizeObs=new ResizeObserver(resize);
+resizeObs.observe(document.documentElement);
+
+/* Mouse only on desktop */
+if(!isMobile){
+  window.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY});
+  window.addEventListener('mouseleave',()=>{mouse.x=null;mouse.y=null});
+}
+/* Touch tracking for mobile particle interaction */
+if(isMobile){
+  window.addEventListener('touchmove',e=>{const t=e.touches[0];mouse.x=t.clientX;mouse.y=t.clientY},{passive:true});
+  window.addEventListener('touchend',()=>{mouse.x=null;mouse.y=null},{passive:true});
+}
+
+for(let i=0;i<N;i++){
+  particles.push({
+    x:Math.random()*window.innerWidth,
+    y:Math.random()*window.innerHeight,
+    vx:(Math.random()-0.5)*(isMobile?0.2:0.4),
+    vy:(Math.random()-0.5)*(isMobile?0.2:0.4),
+    r:Math.random()*1.5+0.5,
+    opacity:Math.random()*0.5+0.2
+  });
+}
+
+/* FPS throttle on mobile to save battery */
+let lastFrame=0;
+const FPS=isMobile?24:60;
+const INTERVAL=1000/FPS;
+
+function drawParticles(ts){
+  requestAnimationFrame(drawParticles);
+  if(ts-lastFrame<INTERVAL)return;
+  lastFrame=ts;
+  ctx.clearRect(0,0,W,H);
+  const connDist=isMobile?90:130;
+  for(let i=0;i<particles.length;i++){
+    for(let j=i+1;j<particles.length;j++){
+      const dx=particles[i].x-particles[j].x;
+      const dy=particles[i].y-particles[j].y;
+      const dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<connDist){
+        ctx.beginPath();
+        ctx.strokeStyle=NEON+(0.08*(1-dist/connDist))+')';
+        ctx.lineWidth=0.6;
+        ctx.moveTo(particles[i].x,particles[i].y);
+        ctx.lineTo(particles[j].x,particles[j].y);
+        ctx.stroke();
+      }
+    }
+    if(mouse.x){
+      const dx=particles[i].x-mouse.x;
+      const dy=particles[i].y-mouse.y;
+      const dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<160){
+        ctx.beginPath();
+        ctx.strokeStyle=NEON+(0.2*(1-dist/160))+')';
+        ctx.lineWidth=1;
+        ctx.moveTo(particles[i].x,particles[i].y);
+        ctx.lineTo(mouse.x,mouse.y);
+        ctx.stroke();
+      }
+    }
+  }
+  particles.forEach(p=>{
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle=NEON+p.opacity+')';
+    ctx.fill();
+    p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0||p.x>W)p.vx*=-1;
+    if(p.y<0||p.y>H)p.vy*=-1;
+  });
+}
+if(!prefersReducedMotion)requestAnimationFrame(drawParticles);
+
+/* ── STREAMING TEXT HERO ── */
+const lines = [
+  "Bot replies instantly.",
+  "Appointment booked.",
+  "Revenue secured."
+];
+let li=0, ci=0, deleting=false, current='';
+const el = document.getElementById('streaming-line');
+function typeWriter(){
+  const target = lines[li];
+  if(!deleting){
+    current = target.slice(0, ++ci);
+    el.innerHTML = '<span style="color:var(--text2)">' + current + '<span style="display:inline-block;width:3px;height:0.85em;background:var(--neon);margin-left:3px;vertical-align:middle;animation:badgepulse 1s step-end infinite"></span></span>';
+    if(ci===target.length){
+      setTimeout(()=>{ deleting=true; setTimeout(typeWriter,500); }, 1800);
+      return;
+    }
+    setTimeout(typeWriter, 55);
+  } else {
+    current = target.slice(0, --ci);
+    el.innerHTML = '<span style="color:var(--text2)">' + current + '<span style="display:inline-block;width:3px;height:0.85em;background:var(--neon);margin-left:3px;vertical-align:middle"></span></span>';
+    if(ci===0){
+      deleting=false;
+      li=(li+1)%lines.length;
+      setTimeout(typeWriter,300);
+      return;
+    }
+    setTimeout(typeWriter,28);
+  }
+}
+if(!prefersReducedMotion)setTimeout(typeWriter,1200);
+else{const sl=document.getElementById('streaming-line');if(sl)sl.innerHTML='<span style="color:var(--text2)">Bot replies instantly.</span>'}
+
+/* ── PHONE CHAT ANIMATION ── */
+const msgs = ['m1','m2','m3','m4'];
+const typings = ['typing','typing2'];
+function animateChat(){
+  // hide all
+  msgs.forEach(id=>{ const el=document.getElementById(id); if(el) el.classList.remove('visible'); });
+  typings.forEach(id=>{ const el=document.getElementById(id); if(el) el.classList.remove('show'); });
+  const delays = [800, 1200, 3200, 4000, 5800, 6200, 8000];
+  setTimeout(()=>{ const el=document.getElementById('m1'); if(el) el.classList.add('visible'); }, delays[0]);
+  setTimeout(()=>{ const el=document.getElementById('typing'); if(el) el.classList.add('show'); }, delays[1]);
+  setTimeout(()=>{ const el=document.getElementById('typing'); if(el) el.classList.remove('show'); const m=document.getElementById('m2'); if(m) m.classList.add('visible'); }, delays[2]);
+  setTimeout(()=>{ const el=document.getElementById('m3'); if(el) el.classList.add('visible'); }, delays[3]);
+  setTimeout(()=>{ const el=document.getElementById('typing2'); if(el) el.classList.add('show'); }, delays[4]);
+  setTimeout(()=>{ const el=document.getElementById('typing2'); if(el) el.classList.remove('show'); const m=document.getElementById('m4'); if(m) m.classList.add('visible'); }, delays[5]);
+  setTimeout(animateChat, 12000);
+}
+if(!prefersReducedMotion)setTimeout(animateChat,600);
+else{['m1','m2','m3','m4'].forEach(id=>{const el=document.getElementById(id);if(el)el.classList.add('visible')})}
+
+/* ── HAMBURGER ── */
+const hamBtn=document.getElementById('ham-btn');
+const mobileMenuEl=document.getElementById('mobile-menu');
+let menuOpen=false;
+function closeMobileMenu(){
+  menuOpen=false;
+  if(mobileMenuEl)mobileMenuEl.classList.remove('open');
+  if(hamBtn){
+    hamBtn.querySelectorAll('span')[0].style.transform='';
+    hamBtn.querySelectorAll('span')[1].style.opacity='';
+    hamBtn.querySelectorAll('span')[2].style.transform='';
+  }
+}
+if(hamBtn){
+  hamBtn.addEventListener('click',()=>{
+    hamBtn.setAttribute('aria-expanded',String(!menuOpen));
+    menuOpen=!menuOpen;
+    if(menuOpen){
+      mobileMenuEl.classList.add('open');
+      hamBtn.querySelectorAll('span')[0].style.transform='translateY(7px) rotate(45deg)';
+      hamBtn.querySelectorAll('span')[1].style.opacity='0';
+      hamBtn.querySelectorAll('span')[2].style.transform='translateY(-7px) rotate(-45deg)';
+    } else closeMobileMenu();
+  });
+}
+
+/* ── SCROLL FADE UP ── */
+const fadeObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')});
+},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-up').forEach(el=>{
+  if(prefersReducedMotion)el.classList.add('vis');
+  else fadeObs.observe(el);
+});
+
+/* ── FAQ ── */
+document.querySelectorAll('.faq-row').forEach(row=>{
+  row.querySelector('.faq-q').addEventListener('click',()=>{
+    const isOpen=row.classList.contains('open');
+    document.querySelectorAll('.faq-row').forEach(r=>r.classList.remove('open'));
+    if(!isOpen)row.classList.add('open');
+  });
+});
+
+/* ── SMOOTH ANCHOR SCROLL (better cross-device) ── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const target=document.querySelector(a.getAttribute('href'));
+    if(target){
+      e.preventDefault();
+      const navH=document.querySelector('nav').offsetHeight;
+      const y=target.getBoundingClientRect().top+window.pageYOffset-navH-16;
+      window.scrollTo({top:y,behavior:'smooth'});
+      closeMobileMenu();
+    }
+  });
+});
+
+/* ── iOS: prevent background scroll when menu is open ── */
+if(isIOS){
+  document.addEventListener('touchmove',e=>{
+    if(menuOpen)e.preventDefault();
+  },{passive:false});
+}
+
+/* ── Reduced motion: show all content immediately ── */
+if(prefersReducedMotion){
+  document.querySelectorAll('.msg').forEach(m=>m.classList.add('visible'));
+  const sl=document.getElementById('streaming-line');
+  if(sl)sl.innerHTML='<span style="color:var(--text2)">Bot replies instantly.</span>';
+}
+
+/* ── SCROLL POSITION RESTORE ── */
+if('scrollRestoration' in history) history.scrollRestoration='auto';
+
+/* ── PERFORMANCE: Pause animations when tab hidden ── */
+document.addEventListener('visibilitychange',()=>{
+  if(document.hidden){
+    canvas.style.display='none';
+  } else {
+    canvas.style.display='block';
+  }
+});
+</script>
+</body>
+</html>
