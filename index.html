@@ -968,6 +968,119 @@ footer{
   .steps-row{grid-template-columns:1fr}
   .hero-stats{flex-wrap:wrap;gap:20px}
 }
+
+/* ══ CAROUSEL ══ */
+.carousel-section{padding:100px 0}
+.carousel-section.dark{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.carousel-wrap{position:relative;margin-top:56px;user-select:none}
+
+/* Track */
+.c-track-outer{overflow:hidden;border-radius:14px;border:1px solid var(--border);cursor:grab;-webkit-user-select:none;user-select:none;touch-action:pan-y;-webkit-touch-callout:none}
+.c-track-outer.is-dragging{cursor:grabbing}
+.c-track{display:flex;will-change:transform;transition:transform 0.42s cubic-bezier(0.25,0.46,0.45,0.94);-webkit-transition:transform 0.42s cubic-bezier(0.25,0.46,0.45,0.94)}
+.c-track.no-transition{transition:none!important}
+
+/* Slides */
+.c-slide{flex-shrink:0;width:33.333%;box-sizing:border-box}
+@media(max-width:1024px){.c-slide{width:50%}}
+@media(max-width:640px){.c-slide{width:100%}}
+
+/* Card inner */
+.c-card{
+  background:var(--bg2);
+  height:100%;min-height:200px;
+  padding:32px 28px;
+  display:flex;flex-direction:column;
+  border-right:1px solid var(--border);
+  position:relative;overflow:hidden;
+  transition:background 0.25s;
+}
+.c-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(0,255,208,0.06),transparent);
+  opacity:0;transition:opacity 0.25s;pointer-events:none;
+}
+.c-card:hover{background:var(--bg3)}
+.c-card:hover::before{opacity:1}
+.c-num{
+  font-family:'Space Mono',monospace;font-size:10px;
+  color:var(--neon);letter-spacing:0.1em;
+  margin-bottom:16px;display:block;text-transform:uppercase;
+}
+.c-card h3{
+  font-family:'Syne',sans-serif;font-size:16px;font-weight:700;
+  color:#fff;margin-bottom:10px;letter-spacing:-0.2px;
+  position:relative;z-index:1;
+}
+.c-card p{
+  font-size:13px;color:var(--text2);line-height:1.65;
+  position:relative;z-index:1;flex:1;
+}
+.c-pill{
+  display:inline-block;margin-top:16px;
+  font-family:'Space Mono',monospace;font-size:9px;
+  color:var(--neon);background:rgba(0,255,208,0.06);
+  border:1px solid rgba(0,255,208,0.15);
+  padding:3px 10px;border-radius:100px;
+  letter-spacing:0.05em;text-transform:uppercase;
+  position:relative;z-index:1;
+}
+
+/* Step variant */
+.c-step-num{
+  font-size:48px;font-weight:800;
+  color:var(--border);line-height:1;
+  font-family:'Syne',sans-serif;
+  margin-bottom:16px;display:block;
+  transition:color 0.25s;
+}
+.c-card:hover .c-step-num{color:var(--border2)}
+
+/* Controls row */
+.c-controls{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:20px;padding:0 2px;
+}
+.c-dots{display:flex;gap:8px;align-items:center}
+.c-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--border2);border:none;padding:0;cursor:pointer;
+  transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+  flex-shrink:0;
+}
+.c-dot.active{
+  width:28px;border-radius:4px;
+  background:var(--neon);
+  box-shadow:0 0 16px rgba(0,255,208,0.45);
+}
+.c-arrows{display:flex;gap:8px}
+.c-btn{
+  width:40px;height:40px;
+  background:rgba(0,255,208,0.08);
+  border:1px solid rgba(0,255,208,0.2);
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;color:var(--neon);
+  font-size:20px;font-weight:300;
+  transition:all 0.2s;line-height:1;
+  touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+}
+.c-btn:hover{background:rgba(0,255,208,0.16);border-color:rgba(0,255,208,0.4)}
+.c-btn:active{transform:scale(0.92)}
+.c-btn:disabled{opacity:0.25;cursor:default}
+
+@media(max-width:640px){
+  .c-card{padding:24px 18px;min-height:180px}
+  .c-card h3{font-size:15px}
+  .c-card p{font-size:12.5px}
+  .c-step-num{font-size:40px}
+}
+@media(prefers-reduced-motion:reduce){
+  .c-track{transition:none!important}
+  .c-dot,.c-card,.c-btn{transition:none!important}
+}
+
 </style>
 <script type="application/ld+json">
 {
@@ -1154,42 +1267,23 @@ footer{
       <h2 class="section-h">Everything your clinic<br>needs on WhatsApp.</h2>
       <p class="section-p">Built for Pakistani clinics. Understands Roman Urdu, Pakistani phone formats, and how your patients actually talk.</p>
     </div>
-    <div class="feat-grid fade-up">
-      <div class="feat-card">
-        <span class="feat-n">[ 01 ]</span>
-        <h3>Smart appointment booking</h3>
-        <p>Patients book on WhatsApp. Bot understands "kal shaam 4 baje" and confirms the slot in seconds.</p>
-        <span class="feat-pill">dental + aesthetic</span>
+    <div class="carousel-wrap fade-up" id="feat-carousel">
+      <div class="c-track-outer" id="feat-track-outer">
+        <div class="c-track" id="feat-track">
+          <div class="c-slide"><div class="c-card"><span class="c-num">[ 01 ]</span><h3>Smart appointment booking</h3><p>Patients book on WhatsApp. Bot understands "kal shaam 4 baje" and confirms the slot in seconds.</p><span class="c-pill">dental + aesthetic</span></div></div>
+          <div class="c-slide"><div class="c-card"><span class="c-num">[ 02 ]</span><h3>Two-path consultation flow</h3><p>Bookable services → direct booking. Medical treatments (Botox, fillers) → consultation callback. Medically correct.</p><span class="c-pill">aesthetic</span></div></div>
+          <div class="c-slide"><div class="c-card"><span class="c-num">[ 03 ]</span><h3>Automatic reminders</h3><p>Patients get reminders 24hrs before. No-show rate drops ~40%. Zero effort from your staff.</p><span class="c-pill">both</span></div></div>
+          <div class="c-slide"><div class="c-card"><span class="c-num">[ 04 ]</span><h3>FAQ on autopilot</h3><p>Pricing, services, location, availability — answered instantly. Roman Urdu or English. Always.</p><span class="c-pill">both</span></div></div>
+          <div class="c-slide"><div class="c-card"><span class="c-num">[ 05 ]</span><h3>Google Sheets sync</h3><p>Every booking and lead saved automatically. Appointments, leads, messages — all organized in real time.</p><span class="c-pill">both</span></div></div>
+          <div class="c-slide"><div class="c-card"><span class="c-num">[ 06 ]</span><h3>Live admin dashboard</h3><p>All bookings and leads in one place. Password protected. Updates live. See your clinic's pulse in real time.</p><span class="c-pill">both</span></div></div>
+        </div>
       </div>
-      <div class="feat-card">
-        <span class="feat-n">[ 02 ]</span>
-        <h3>Two-path consultation flow</h3>
-        <p>Bookable services → direct booking. Medical treatments (Botox, fillers) → consultation callback. Medically correct.</p>
-        <span class="feat-pill">aesthetic</span>
-      </div>
-      <div class="feat-card">
-        <span class="feat-n">[ 03 ]</span>
-        <h3>Automatic reminders</h3>
-        <p>Patients get reminders 24hrs before. No-show rate drops ~40%. Zero effort from your staff.</p>
-        <span class="feat-pill">both</span>
-      </div>
-      <div class="feat-card">
-        <span class="feat-n">[ 04 ]</span>
-        <h3>FAQ on autopilot</h3>
-        <p>Pricing, services, location, availability — answered instantly. Roman Urdu or English. Always.</p>
-        <span class="feat-pill">both</span>
-      </div>
-      <div class="feat-card">
-        <span class="feat-n">[ 05 ]</span>
-        <h3>Google Sheets sync</h3>
-        <p>Every booking and lead saved automatically. Appointments, leads, messages — all organized in real time.</p>
-        <span class="feat-pill">both</span>
-      </div>
-      <div class="feat-card">
-        <span class="feat-n">[ 06 ]</span>
-        <h3>Live admin dashboard</h3>
-        <p>All bookings and leads in one place. Password protected. Updates live. See your clinic's pulse in real time.</p>
-        <span class="feat-pill">both</span>
+      <div class="c-controls">
+        <div class="c-dots" id="feat-dots"></div>
+        <div class="c-arrows">
+          <button class="c-btn" id="feat-prev" aria-label="Previous">&#8249;</button>
+          <button class="c-btn" id="feat-next" aria-label="Next">&#8250;</button>
+        </div>
       </div>
     </div>
   </div>
@@ -1202,29 +1296,21 @@ footer{
       <div class="section-eye">Process</div>
       <h2 class="section-h">Live in 3 days.<br>Zero tech work from you.</h2>
     </div>
-    <div class="steps-row fade-up">
-      <div class="step-card">
-        <div class="step-arr">→</div>
-        <span class="step-n-big">01</span>
-        <h3>Share your services</h3>
-        <p>Send us your services list, prices, and doctor schedule. No technical work needed from your side.</p>
+    <div class="carousel-wrap fade-up" id="steps-carousel">
+      <div class="c-track-outer" id="steps-track-outer">
+        <div class="c-track" id="steps-track">
+          <div class="c-slide"><div class="c-card"><span class="c-step-num">01</span><h3>Share your services</h3><p>Send us your services list, prices, and doctor schedule. No technical work needed from your side.</p></div></div>
+          <div class="c-slide"><div class="c-card"><span class="c-step-num">02</span><h3>We build and test</h3><p>We configure, test every flow, and customize completely for your clinic. Done in 3 days max.</p></div></div>
+          <div class="c-slide"><div class="c-card"><span class="c-step-num">03</span><h3>Goes live on WhatsApp</h3><p>Bot is active on your number. Patients message, bot replies, bookings appear in your Google Sheet.</p></div></div>
+          <div class="c-slide"><div class="c-card"><span class="c-step-num">04</span><h3>Watch it work</h3><p>Open your dashboard anytime to see bookings and leads. We handle all maintenance and updates.</p></div></div>
+        </div>
       </div>
-      <div class="step-card">
-        <div class="step-arr">→</div>
-        <span class="step-n-big">02</span>
-        <h3>We build and test</h3>
-        <p>We configure, test every flow, and customize completely for your clinic. Done in 3 days max.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-arr">→</div>
-        <span class="step-n-big">03</span>
-        <h3>Goes live on WhatsApp</h3>
-        <p>Bot is active on your number. Patients message, bot replies, bookings appear in your Google Sheet.</p>
-      </div>
-      <div class="step-card">
-        <span class="step-n-big">04</span>
-        <h3>Watch it work</h3>
-        <p>Open your dashboard anytime to see bookings and leads. We handle all maintenance and updates.</p>
+      <div class="c-controls">
+        <div class="c-dots" id="steps-dots"></div>
+        <div class="c-arrows">
+          <button class="c-btn" id="steps-prev" aria-label="Previous">&#8249;</button>
+          <button class="c-btn" id="steps-next" aria-label="Next">&#8250;</button>
+        </div>
       </div>
     </div>
   </div>
@@ -1584,7 +1670,220 @@ document.addEventListener('visibilitychange',()=>{
     canvas.style.display='block';
   }
 });
+
+/* ══════════════════════════════
+   CAROUSEL ENGINE v3
+   Fixed: DOMContentLoaded, passive touch, iOS scroll lock
+   ══════════════════════════════ */
+function buildCarousel(cfg){
+  const {trackId,outerID,dotsId,prevId,nextId,loop=true} = cfg;
+  const outer = document.getElementById(outerID);
+  const track = document.getElementById(trackId);
+  const dotsWrap = document.getElementById(dotsId);
+  const prevBtn = document.getElementById(prevId);
+  const nextBtn = document.getElementById(nextId);
+  if(!outer||!track){console.warn('Carousel: element not found',outerID);return;}
+
+  const slides = Array.from(track.querySelectorAll('.c-slide'));
+  const total = slides.length;
+  let current = 0;
+  let isDragging = false;
+  let startX = 0;
+  let startY = 0;
+  let startTx = 0;
+  let currentTx = 0;
+  let isHorizontal = null; /* null = undecided, true = horiz, false = vert */
+
+  /* ── helpers ── */
+  function perView(){
+    const w = outer.offsetWidth;
+    if(w>=1024) return Math.min(3,total);
+    if(w>=640)  return Math.min(2,total);
+    return 1;
+  }
+  function slideWidth(){ return outer.offsetWidth/perView(); }
+  function maxIdx(){ return Math.max(0,total-perView()); }
+  function targetTx(idx){ return -(idx*slideWidth()); }
+
+  /* ── go to slide ── */
+  function goTo(idx,animated=true){
+    const max=maxIdx();
+    if(loop){ if(idx<0)idx=max; if(idx>max)idx=0; }
+    else { idx=Math.max(0,Math.min(max,idx)); }
+    current=idx;
+    currentTx=targetTx(current);
+    if(!animated){
+      track.style.transition='none';
+      track.style.transform=`translateX(${currentTx}px)`;
+      /* force reflow then re-enable */
+      track.getBoundingClientRect();
+      track.style.transition='';
+    } else {
+      track.style.transform=`translateX(${currentTx}px)`;
+    }
+    syncDots();
+    syncArrows();
+  }
+
+  /* ── dots ── */
+  function buildDots(){
+    dotsWrap.innerHTML='';
+    const count=maxIdx()+1;
+    for(let i=0;i<count;i++){
+      const b=document.createElement('button');
+      b.className='c-dot'+(i===0?' active':'');
+      b.setAttribute('aria-label','Go to slide '+(i+1));
+      b.addEventListener('click',()=>goTo(i));
+      dotsWrap.appendChild(b);
+    }
+  }
+  function syncDots(){
+    dotsWrap.querySelectorAll('.c-dot').forEach((d,i)=>d.classList.toggle('active',i===current));
+  }
+  function syncArrows(){
+    if(!prevBtn||!nextBtn||loop)return;
+    prevBtn.disabled=current<=0;
+    nextBtn.disabled=current>=maxIdx();
+  }
+
+  /* ── resize ── */
+  function onResize(){
+    slides.forEach(s=>s.style.width=(100/perView())+'%');
+    goTo(Math.min(current,maxIdx()),false);
+    buildDots();
+  }
+
+  /* ── TOUCH: non-passive so we can preventDefault horizontal ── */
+  function onTouchStart(e){
+    isDragging=true;
+    isHorizontal=null;
+    startX=e.touches[0].clientX;
+    startY=e.touches[0].clientY;
+    startTx=targetTx(current);
+    track.style.transition='none';
+  }
+
+  function onTouchMove(e){
+    if(!isDragging)return;
+    const dx=e.touches[0].clientX-startX;
+    const dy=e.touches[0].clientY-startY;
+
+    /* Decide direction on first meaningful move */
+    if(isHorizontal===null){
+      if(Math.abs(dx)<3&&Math.abs(dy)<3)return;
+      isHorizontal=Math.abs(dx)>Math.abs(dy);
+    }
+
+    /* If vertical — let native scroll handle it */
+    if(!isHorizontal)return;
+
+    /* Horizontal — take over, stop page scroll */
+    e.preventDefault();
+
+    const raw=startTx+dx;
+    const min=targetTx(maxIdx());
+    const max=0;
+    /* rubber-band resistance at edges */
+    let tx;
+    if(raw>max)      tx=max+(raw-max)*0.3;
+    else if(raw<min) tx=min+(raw-min)*0.3;
+    else             tx=raw;
+
+    currentTx=tx;
+    track.style.transform=`translateX(${tx}px)`;
+  }
+
+  function onTouchEnd(e){
+    if(!isDragging)return;
+    isDragging=false;
+    isHorizontal=null;
+    track.style.transition=''; /* re-enable CSS transition */
+    if(!isHorizontal && e.changedTouches){
+      const dx=e.changedTouches[0].clientX-startX;
+      const threshold=slideWidth()*0.18;
+      if(dx < -threshold)      goTo(current+1);
+      else if(dx > threshold)  goTo(current-1);
+      else                     goTo(current);
+    } else {
+      goTo(current);
+    }
+  }
+
+  /* NON-PASSIVE touch listeners — critical for e.preventDefault() to work on iOS */
+  outer.addEventListener('touchstart', onTouchStart, {passive:true});
+  outer.addEventListener('touchmove',  onTouchMove,  {passive:false}); /* NON-PASSIVE */
+  outer.addEventListener('touchend',   onTouchEnd,   {passive:true});
+  outer.addEventListener('touchcancel',onTouchEnd,   {passive:true});
+
+  /* ── MOUSE drag (desktop) ── */
+  function onMouseDown(e){
+    isDragging=true;
+    startX=e.clientX;
+    startTx=targetTx(current);
+    track.style.transition='none';
+    outer.style.cursor='grabbing';
+    e.preventDefault();
+  }
+  function onMouseMove(e){
+    if(!isDragging)return;
+    const dx=e.clientX-startX;
+    const raw=startTx+dx;
+    const min=targetTx(maxIdx()); const max=0;
+    let tx;
+    if(raw>max)      tx=max+(raw-max)*0.3;
+    else if(raw<min) tx=min+(raw-min)*0.3;
+    else             tx=raw;
+    currentTx=tx;
+    track.style.transform=`translateX(${tx}px)`;
+  }
+  function onMouseUp(e){
+    if(!isDragging)return;
+    isDragging=false;
+    outer.style.cursor='grab';
+    track.style.transition='';
+    const dx=e.clientX-startX;
+    const threshold=slideWidth()*0.18;
+    if(dx < -threshold)      goTo(current+1);
+    else if(dx > threshold)  goTo(current-1);
+    else                     goTo(current);
+  }
+  outer.addEventListener('mousedown',onMouseDown);
+  window.addEventListener('mousemove',onMouseMove);
+  window.addEventListener('mouseup',onMouseUp);
+
+  /* ── Arrows ── */
+  prevBtn?.addEventListener('click',()=>goTo(current-1));
+  nextBtn?.addEventListener('click',()=>goTo(current+1));
+
+  /* ── Keyboard ── */
+  outer.tabIndex=0;
+  outer.addEventListener('keydown',e=>{
+    if(e.key==='ArrowLeft'){e.preventDefault();goTo(current-1);}
+    if(e.key==='ArrowRight'){e.preventDefault();goTo(current+1);}
+  });
+
+  /* ── ResizeObserver ── */
+  new ResizeObserver(onResize).observe(outer);
+
+  /* ── Init ── */
+  onResize();
+  return {goTo,next:()=>goTo(current+1),prev:()=>goTo(current-1)};
+}
+
+/* ── Wait for DOM before init ── */
+function initCarousels(){
+  buildCarousel({trackId:'feat-track', outerID:'feat-track-outer', dotsId:'feat-dots', prevId:'feat-prev', nextId:'feat-next', loop:true});
+  buildCarousel({trackId:'steps-track',outerID:'steps-track-outer',dotsId:'steps-dots',prevId:'steps-prev',nextId:'steps-next',loop:true});
+}
+
+if(document.readyState==='loading'){
+  document.addEventListener('DOMContentLoaded', initCarousels);
+} else {
+  initCarousels();
+}
+
 </script>
 </body>
 </html>
+
 <!-- deploy trigger -->
